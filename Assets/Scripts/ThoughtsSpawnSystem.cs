@@ -10,12 +10,13 @@ public class ThoughtsSpawnSystem : MonoBehaviour
     public int maxThoughts = 10;
     private int currentThoughts = 0;
     private bool canSpawn = false;
+    public float initialDelay = 10;
     private static Queue<GameObject> thoughtsPool;
 
     void Start()
     {
         thoughtsPool = new Queue<GameObject>();
-        StartCoroutine(CoolDown());
+        StartCoroutine(CoolDown(initialDelay));
     }
 
     // Update is called once per frame
@@ -33,8 +34,8 @@ public class ThoughtsSpawnSystem : MonoBehaviour
                 thought.transform.position = new Vector3(x, y);
                 thought.SetActive(true);
                 canSpawn = false;
-                StartCoroutine(CoolDown());
-            }              
+                StartCoroutine(CoolDown(coolDownSpawn));
+            }
         }
 
     }
@@ -54,9 +55,9 @@ public class ThoughtsSpawnSystem : MonoBehaviour
         }
         return thoughtsPool.Dequeue();
     }
-    private IEnumerator CoolDown()
+    private IEnumerator CoolDown(float delay)
     {
-        yield return new WaitForSeconds(coolDownSpawn);
+        yield return new WaitForSeconds(delay);
         canSpawn = true;
     }
 
