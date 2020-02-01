@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoodThought : MonoBehaviour
 {
-    public Transform origin;
+    public Vector3 origin;
     
     public float rotation = 0; // degrees around origin
     public float radius = 6;
@@ -20,8 +20,8 @@ public class GoodThought : MonoBehaviour
     void Update()
     {
         radius = Mathf.Lerp(radius, 0, speedToCenter*Time.deltaTime);
-        Vector3 left = new Vector3(origin.position.x - radius, origin.position.y, origin.position.z);
-        Vector3 right = new Vector3(origin.position.x + radius, origin.position.y, origin.position.z);
+        Vector3 left = new Vector3(origin.x - radius, origin.y, origin.z);
+        Vector3 right = new Vector3(origin.x + radius, origin.y, origin.z);
         rotation += Time.deltaTime * speed;
         rotation = rotation % 2;
 

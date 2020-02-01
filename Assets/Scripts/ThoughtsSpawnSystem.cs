@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BadThoughtSpawnSystem : MonoBehaviour
+public class ThoughtsSpawnSystem : MonoBehaviour
 {
-    public GameObject badThoughtObject;
+    public GameObject ThoughtPrefab;
     public float radius = 6f;
     public float coolDownSpawn = 1f;
     public int maxThoughts = 10;
@@ -12,7 +12,7 @@ public class BadThoughtSpawnSystem : MonoBehaviour
     private bool canSpawn = false;
     private float coolDownCountDown = 0f;
     private Queue<GameObject> thoughtsPool;
- 
+
     void Start()
     {
         thoughtsPool = new Queue<GameObject>();
@@ -22,17 +22,17 @@ public class BadThoughtSpawnSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( canSpawn )
+        if (canSpawn)
         {
-           
-            GameObject badThought = GetThought();
-            if (badThought !=null)
+
+            GameObject thought = GetThought();
+            if (thought != null)
             {
                 var angle = Random.Range(0f, 1f) * Mathf.PI * 2;
                 var x = Mathf.Cos(angle) * radius;
                 var y = Mathf.Sin(angle) * radius;
-                badThought.transform.position = new Vector3(x, y);
-                badThought.SetActive(true);
+                thought.transform.position = new Vector3(x, y);
+                thought.SetActive(true);
             }
             canSpawn = false;
             StartCoroutine(CoolDown());
@@ -44,7 +44,7 @@ public class BadThoughtSpawnSystem : MonoBehaviour
     {
         if (thoughtsPool.Count == 0 && currentThoughts < maxThoughts)
         {
-            GameObject thoughtToPool = GameObject.Instantiate(badThoughtObject, transform);
+            GameObject thoughtToPool = GameObject.Instantiate(ThoughtPrefab, transform);
             thoughtToPool.SetActive(false);
             thoughtsPool.Enqueue(thoughtToPool);
             currentThoughts++;
