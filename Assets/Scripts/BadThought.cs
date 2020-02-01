@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class BadThought : MonoBehaviour
 {
-    public Transform target;
     public float speed = 0.001f;
     private Vector3 directionToTarget;
     void Start()
     {
-        directionToTarget = target.position - transform.position;
+        directionToTarget = Vector3.zero - transform.position;
         directionToTarget = directionToTarget.normalized;
     }
 
