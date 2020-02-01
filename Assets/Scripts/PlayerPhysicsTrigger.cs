@@ -6,6 +6,8 @@ public class PlayerPhysicsTrigger : MonoBehaviour
 {
     Rigidbody2D body;
     public Transform attachmentPoint;
+    public PlayerTrain train;
+    public GoodThought lastThought;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,15 @@ public class PlayerPhysicsTrigger : MonoBehaviour
             return;
         }
 
-        thought.AttachTo(attachmentPoint);
+        thought.train = train;
+        if (lastThought)
+        {
+            thought.previous = lastThought;
+            lastThought.next = thought;
+            thought.AttachTo(lastThought.attachmentBack);
+        } else {
+            thought.AttachTo(attachmentPoint);
+        }
+        lastThought = thought;
     }
 }

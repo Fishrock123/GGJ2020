@@ -13,6 +13,10 @@ public class GoodThought : MonoBehaviour
 
     public bool attached = false;
 
+    public PlayerTrain train;
+    public GoodThought previous;
+    public GoodThought next;
+
     public Transform attachmentFront;
     public Transform attachmentBack;
     // Start is called before the first frame update
