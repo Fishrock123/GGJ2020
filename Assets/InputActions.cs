@@ -19,9 +19,17 @@ public class @InputActions : IInputActionCollection, IDisposable
             ""id"": ""256af55b-eaa6-420b-87d7-6c49a09f0d06"",
             ""actions"": [
                 {
-                    ""name"": ""Move Radius"",
+                    ""name"": ""Velocity"",
                     ""type"": ""Value"",
                     ""id"": ""1f68ec8e-bacf-4859-beda-237788e683f8"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Rotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""e5f54ea2-401b-4cb4-8dcd-58f711ba051c"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -31,11 +39,22 @@ public class @InputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""83242885-86a1-4a95-9289-5cdc95c9fb3e"",
+                    ""path"": ""<DualShockGamepad>/rightStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Velocity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0a3aab1-8ac3-42f2-b5d3-ab34e948ec57"",
                     ""path"": ""<DualShockGamepad>/leftStick/y"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;Keyboard&Mouse"",
-                    ""action"": ""Move Radius"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Velocity"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -46,7 +65,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move Radius"",
+                    ""action"": ""Velocity"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -56,8 +75,8 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move Radius"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Velocity"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -67,8 +86,63 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Velocity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3d19c14-dd17-412b-b3af-8c90a462be9e"",
+                    ""path"": ""<DualShockGamepad>/rightStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""feb846b5-f767-474c-833a-b377e6971bcd"",
+                    ""path"": ""<DualShockGamepad>/leftStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""efec9147-5c5e-4836-936b-5082370cf6b9"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move Radius"",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""70ab0eb9-ec05-4b40-a117-c4b562b7c7f8"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8d804557-daac-4868-a534-e1008ac19f15"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -643,7 +717,8 @@ public class @InputActions : IInputActionCollection, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_MoveRadius = m_Player.FindAction("Move Radius", throwIfNotFound: true);
+        m_Player_Velocity = m_Player.FindAction("Velocity", throwIfNotFound: true);
+        m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -706,12 +781,14 @@ public class @InputActions : IInputActionCollection, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_MoveRadius;
+    private readonly InputAction m_Player_Velocity;
+    private readonly InputAction m_Player_Rotation;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MoveRadius => m_Wrapper.m_Player_MoveRadius;
+        public InputAction @Velocity => m_Wrapper.m_Player_Velocity;
+        public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -721,16 +798,22 @@ public class @InputActions : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @MoveRadius.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveRadius;
-                @MoveRadius.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveRadius;
-                @MoveRadius.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveRadius;
+                @Velocity.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVelocity;
+                @Velocity.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVelocity;
+                @Velocity.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVelocity;
+                @Rotation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
+                @Rotation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
+                @Rotation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @MoveRadius.started += instance.OnMoveRadius;
-                @MoveRadius.performed += instance.OnMoveRadius;
-                @MoveRadius.canceled += instance.OnMoveRadius;
+                @Velocity.started += instance.OnVelocity;
+                @Velocity.performed += instance.OnVelocity;
+                @Velocity.canceled += instance.OnVelocity;
+                @Rotation.started += instance.OnRotation;
+                @Rotation.performed += instance.OnRotation;
+                @Rotation.canceled += instance.OnRotation;
             }
         }
     }
@@ -895,7 +978,8 @@ public class @InputActions : IInputActionCollection, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnMoveRadius(InputAction.CallbackContext context);
+        void OnVelocity(InputAction.CallbackContext context);
+        void OnRotation(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

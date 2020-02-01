@@ -390,7 +390,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 633910182}
-        m_MethodName: AdjustRadius
+        m_MethodName: AdjustVelocity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -402,6 +402,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1f68ec8e-bacf-4859-beda-237788e683f8
     m_ActionName: Player/Move Radius[/Keyboard/downArrow,/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 633910182}
+        m_MethodName: AdjustRotation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e5f54ea2-401b-4cb4-8dcd-58f711ba051c
+    m_ActionName: Player/Rotation[/DualShock4GamepadHID/rightStick/x,/Keyboard/leftArrow,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -420,11 +435,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {fileID: 710629213}
-  rotation: 0
-  radius: 2
-  rMax: 5
-  rMin: 1
-  speed: 45
+  rotation: 180
+  rotChange: 50
+  velocity: 0.1
+  velChange: 2
+  vMax: 2
+  vMin: 0.5
+  radiusMax: 6
+  radiusMin: 1
 --- !u!4 &633910186
 Transform:
   m_ObjectHideFlags: 0
@@ -668,7 +686,7 @@ Transform:
   m_GameObject: {fileID: 2018821186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
+  m_LocalScale: {x: 0.5, y: 1.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 633910186}
   m_RootOrder: 0
