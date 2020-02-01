@@ -10,7 +10,6 @@ public class ThoughtsSpawnSystem : MonoBehaviour
     public int maxThoughts = 10;
     private int currentThoughts = 0;
     private bool canSpawn = false;
-    private float coolDownCountDown = 0f;
     private static Queue<GameObject> thoughtsPool;
 
     void Start()
@@ -33,9 +32,9 @@ public class ThoughtsSpawnSystem : MonoBehaviour
                 var y = Mathf.Sin(angle) * radius;
                 thought.transform.position = new Vector3(x, y);
                 thought.SetActive(true);
-            }
-            canSpawn = false;
-            StartCoroutine(CoolDown());
+                canSpawn = false;
+                StartCoroutine(CoolDown());
+            }              
         }
 
     }
@@ -63,7 +62,7 @@ public class ThoughtsSpawnSystem : MonoBehaviour
 
     public void BackToPool(GameObject gameObjectToPool)
     {
-        thoughtsPool.Enqueue(gameObjectToPool);
         gameObjectToPool.SetActive(false);
+        thoughtsPool.Enqueue(gameObjectToPool);
     }
 }
