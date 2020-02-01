@@ -37,7 +37,6 @@ public class PlayerPhysicsTrigger : MonoBehaviour
 
         if (thought == null)
         {
-            Debug.LogError("Thought behavior not found!");
             return;
         }
 
