@@ -80,6 +80,11 @@ public class PlayerTrain : MonoBehaviour
             transform.LookAt(origin);
             float targetEulerZ = Mathf.Clamp(transform.rotation.eulerAngles.z - originalEulerZ, -5, 5);
             transform.rotation = Quaternion.Euler(0, 0, originalEulerZ + targetEulerZ);
+
+            if (Mathf.Abs(transform.position.x) > MaxX + (MaxX / 8) || Mathf.Abs(transform.position.y) > MaxY + (MaxY / 8))
+            {
+                transform.position = transform.position + (origin.position - transform.position) * velChange * Time.fixedDeltaTime;
+            }
         }
         else if (distToOrigin < radiusMin)
         {
