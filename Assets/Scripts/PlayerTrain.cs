@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerTrain : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerTrain : MonoBehaviour
 
     public float rotation = 0; // degrees around origin
     public float radius = 2;
+    public float rMax = 5;
+    public float rMin = 1;
 
     public float speed = 0.1f;
 
@@ -16,6 +19,14 @@ public class PlayerTrain : MonoBehaviour
     {
 
     }
+
+    public void AdjustRadius(InputAction.CallbackContext context)
+    {
+        float v = context.ReadValue<float>();
+        radius += v * Time.fixedDeltaTime;
+        radius = Mathf.Clamp(radius, rMin, rMax);
+    }
+
     void Update () {
 
         Vector3 left = new Vector3(origin.position.x - radius, origin.position.y, origin.position.z);
@@ -35,9 +46,14 @@ public class PlayerTrain : MonoBehaviour
         // float riseRelCenter = sunrise.position - center;
         // float setRelCenter = sunset.position - center;
         rotation += Time.deltaTime * speed;
-        rotation = rotation % 1;
+        rotation = rotation % 2;
 
-        Vector3 xform = Vector3.Slerp(left, right, rotation);
+        Vector3 xform;
+        if (rotation > 1) {
+            xform = Vector3.Slerp(right, left, rotation - 1);
+        } else {
+            xform = Vector3.Slerp(left, right, rotation);
+        }
 
         transform.position = new Vector3(xform.x, xform.z, xform.y);
         // transform.position += center;
