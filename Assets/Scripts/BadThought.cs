@@ -17,4 +17,33 @@ public class BadThought : MonoBehaviour
     {
         transform.Translate(directionToTarget * speed * Time.deltaTime);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        GoodThought otherThought;
+        other.TryGetComponent(out otherThought);
+        if (otherThought == null)
+        {
+            return;
+        }
+
+        // We hit a good thought
+        if (otherThought.attached == false)
+        {
+            return;
+        }
+
+        // It is attached, so destroy the bad thought.
+
+        ThoughtsSpawnSystem tss;
+        GameObject.Find("BadThoughtSpawnSystem").TryGetComponent(out tss);
+
+        if (tss == null)
+        {
+            Debug.LogError("Tried to return bad thought to spawner but could not find spawner");
+        }
+
+        tss.BackToPool(gameObject);
+    }
 }

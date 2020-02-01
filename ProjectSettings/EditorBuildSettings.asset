@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Game Managment.unity
+    guid: f1657510f09464f7a9a80b05e3071e2f
+  - enabled: 1
+    path: Assets/Scenes/OtherScene.unity
+    guid: 4e22d99f9117df44da7e2760c7907d0b
+  - enabled: 1
+    path: Assets/Scenes/TrumpScene.unity
+    guid: 3b507b52bdea243f7866dba4d7e4176b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 41f67f198597f4e1cb522ea8d5cbb8ad,
       type: 2}
