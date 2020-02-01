@@ -6,7 +6,7 @@ public class BadThought : MonoBehaviour
 {
     public float speed = 0.001f;
     private Vector3 directionToTarget;
-    void Start()
+    private void OnEnable()
     {
         directionToTarget = Vector3.zero - transform.position;
         directionToTarget = directionToTarget.normalized;

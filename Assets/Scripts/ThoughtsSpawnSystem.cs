@@ -11,7 +11,7 @@ public class ThoughtsSpawnSystem : MonoBehaviour
     private int currentThoughts = 0;
     private bool canSpawn = false;
     private float coolDownCountDown = 0f;
-    private Queue<GameObject> thoughtsPool;
+    private static Queue<GameObject> thoughtsPool;
 
     void Start()
     {
@@ -44,7 +44,7 @@ public class ThoughtsSpawnSystem : MonoBehaviour
     {
         if (thoughtsPool.Count == 0 && currentThoughts < maxThoughts)
         {
-            GameObject thoughtToPool = GameObject.Instantiate(ThoughtPrefab, transform);
+            GameObject thoughtToPool = Instantiate(ThoughtPrefab, transform);
             thoughtToPool.SetActive(false);
             thoughtsPool.Enqueue(thoughtToPool);
             currentThoughts++;
@@ -63,7 +63,7 @@ public class ThoughtsSpawnSystem : MonoBehaviour
 
     public void BackToPool(GameObject gameObjectToPool)
     {
-        gameObjectToPool.SetActive(false);
         thoughtsPool.Enqueue(gameObjectToPool);
+        gameObjectToPool.SetActive(false);
     }
 }
