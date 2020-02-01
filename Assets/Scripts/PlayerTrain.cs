@@ -55,7 +55,11 @@ public class PlayerTrain : MonoBehaviour
             xform = Vector3.Slerp(left, right, rotation);
         }
 
-        transform.position = new Vector3(xform.x, xform.z, xform.y);
+        if (rotation > 1) {
+            transform.position = new Vector3(xform.x, -xform.z, xform.y);
+        } else {
+            transform.position = new Vector3(xform.x, xform.z, xform.y);
+        }
         // transform.position += center;
  }
 }
