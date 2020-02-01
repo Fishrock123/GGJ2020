@@ -58,7 +58,7 @@ public class PlayerTrain : MonoBehaviour
 
         Debug.DrawRay(right, right + right, Color.red);
 
-        rotation += Time.deltaTime * speed;
+        rotation += Time.deltaTime * (speed / radius);
         rotation = rotation % 360;
 
         float rot_02 = rotation / 180;
@@ -71,5 +71,7 @@ public class PlayerTrain : MonoBehaviour
             xform = Vector3.Slerp(left, right, rot_02);
             transform.position = new Vector3(xform.x, xform.z, xform.y);
         }
+
+        transform.rotation = Quaternion.LookRotation(transform.position - origin.position, Vector3.up);
     }
 }
