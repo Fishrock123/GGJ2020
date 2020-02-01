@@ -5,14 +5,31 @@ using UnityEngine.InputSystem;
 
 public class PlayerTrain : MonoBehaviour
 {
+    public InputActions input;
     public Transform origin;
 
     public float rotation = 0; // degrees around origin
     public float radius = 2;
+    float radiusInput = 0;
     public float rMax = 5;
     public float rMin = 1;
 
     public float speed = 0.1f;
+
+    void Awake()
+    {
+        input = new InputActions();
+    }
+
+    void OnEnable()
+    {
+        input.Enable();
+    }
+
+    void OnDisable()
+    {
+        input.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +39,12 @@ public class PlayerTrain : MonoBehaviour
 
     public void AdjustRadius(InputAction.CallbackContext context)
     {
-        float v = context.ReadValue<float>();
-        radius += v * Time.fixedDeltaTime;
+        radiusInput = context.ReadValue<float>();
+    }
+
+        void FixedUpdate()
+    {
+        radius += radiusInput * Time.fixedDeltaTime;
         radius = Mathf.Clamp(radius, rMin, rMax);
     }
 
