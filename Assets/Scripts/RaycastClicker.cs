@@ -21,6 +21,6 @@ public class RaycastClicker : MonoBehaviour
 
     void DoRaycastClick()
     {
-        Physics.Raycast();
+        // Physics.Raycast();
     }
 }
