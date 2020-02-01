@@ -5,20 +5,32 @@ using UnityEngine;
 public class GoodThought : MonoBehaviour
 {
     public Vector3 origin;
-    
     public float rotation = 0; // degrees around origin
     public float radius = 6;
 
     public float speed = 0.1f;
     public float speedToCenter = 0.1f;
+
+    public bool attached = false;
+
+    public Transform attachmentFront;
+    public Transform attachmentBack;
+    // Start is called before the first frame update
+    public Transform targetAnchor;
+
     void Start()
     {
-        
-        
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        if (attached)
+        {
+            transform.up = targetAnchor.position - transform.position;
+            transform.position = targetAnchor.position - (transform.up * attachmentFront.localPosition.magnitude);
+            return;
+        }
+
         radius = Mathf.Lerp(radius, 0, speedToCenter*Time.deltaTime);
         Vector3 left = new Vector3(origin.x - radius, origin.y, origin.z);
         Vector3 right = new Vector3(origin.x + radius, origin.y, origin.z);
@@ -43,5 +55,17 @@ public class GoodThought : MonoBehaviour
         {
             transform.position = new Vector3(xform.x, xform.z, xform.y);
         }
+    }
+
+    public void AttachTo(Transform anchor)
+    {
+        targetAnchor = anchor;
+        attached = true;
+    }
+
+    public void Detatch()
+    {
+        targetAnchor = null;
+        attached = false;
     }
 }
