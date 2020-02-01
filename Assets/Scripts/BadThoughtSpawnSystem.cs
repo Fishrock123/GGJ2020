@@ -60,4 +60,10 @@ public class BadThoughtSpawnSystem : MonoBehaviour
         yield return new WaitForSeconds(coolDownSpawn);
         canSpawn = true;
     }
+
+    public void BackToPool(GameObject gameObjectToPool)
+    {
+        gameObjectToPool.SetActive(false);
+        thoughtsPool.Enqueue(gameObjectToPool);
+    }
 }
