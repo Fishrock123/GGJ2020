@@ -22,6 +22,8 @@ public class GoodThought : MonoBehaviour
     // Start is called before the first frame update
     public Transform targetAnchor;
 
+    public GameObject trainGFX;
+
     void Start()
     {
     }
@@ -65,11 +67,13 @@ public class GoodThought : MonoBehaviour
     {
         targetAnchor = anchor;
         attached = true;
+        trainGFX.SetActive(true);
     }
 
     public void Detatch()
     {
         targetAnchor = null;
         attached = false;
+        trainGFX.SetActive(false);
     }
 }
