@@ -14,7 +14,7 @@ public class PlayerTrain : MonoBehaviour
     public float rMax = 5;
     public float rMin = 1;
 
-    public float speed = 0.1f;
+    public float speed = 3f;
 
     void Awake()
     {
@@ -58,29 +58,18 @@ public class PlayerTrain : MonoBehaviour
 
         Debug.DrawRay(right, right + right, Color.red);
 
-        // // The center of the arc
-        // float center = (originLeft.position + originRight.position) * 0.5;
-        // // move the center a bit downwards to make the arc vertical
-        // center -= Vector3(0,1,0);
-
-        // // Interpolate over the arc relative to center
-        // float riseRelCenter = sunrise.position - center;
-        // float setRelCenter = sunset.position - center;
         rotation += Time.deltaTime * speed;
-        rotation = rotation % 2;
+        rotation = rotation % 360;
+
+        float rot_02 = rotation / 180;
 
         Vector3 xform;
-        if (rotation > 1) {
-            xform = Vector3.Slerp(right, left, rotation - 1);
-        } else {
-            xform = Vector3.Slerp(left, right, rotation);
-        }
-
-        if (rotation > 1) {
+        if (rot_02 > 1) {
+            xform = Vector3.Slerp(right, left, rot_02 - 1);
             transform.position = new Vector3(xform.x, -xform.z, xform.y);
         } else {
+            xform = Vector3.Slerp(left, right, rot_02);
             transform.position = new Vector3(xform.x, xform.z, xform.y);
         }
-        // transform.position += center;
- }
+    }
 }
