@@ -42,6 +42,7 @@ public class TrumpSceneMagement : MonoBehaviour
 
     public void LoadScene(string name)
     {
+        Time.timeScale = 1;
         gameManager.SetLevel(name);
     }
 }
