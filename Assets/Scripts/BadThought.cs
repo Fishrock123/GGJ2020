@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BadThought : MonoBehaviour
 {
+    public UnityEngine.Events.UnityEvent GoodThougthCollisionEvent;
     public float speed = 0.001f;
     private Vector3 directionToTarget;
     private void OnEnable()
@@ -36,6 +37,7 @@ public class BadThought : MonoBehaviour
 
         // It is attached, so destroy the bad thought.
 
+        GoodThougthCollisionEvent.Invoke();
         BadThoughtsSpawnSystem tss;
         GameObject.Find("BadThoughtSpawnSystem").TryGetComponent(out tss);
 

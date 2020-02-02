@@ -51,8 +51,8 @@ public class GoodThought : MonoBehaviour
             return;
         }
 
-        radius = Mathf.Lerp(radius, 0, speedToCenter*Time.deltaTime);
-        
+        radius = Mathf.Lerp(radius, 0, speedToCenter * Time.deltaTime);
+
         rotation += Time.deltaTime * speed;
         rotation = rotation % 2;
 
@@ -89,4 +89,5 @@ public class GoodThought : MonoBehaviour
     {
         targetAnchor = anchor;
     }
+
 }
