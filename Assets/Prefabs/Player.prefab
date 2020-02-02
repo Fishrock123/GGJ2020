@@ -4979,14 +4979,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {fileID: 0}
   rotation: 180
-  rotChange: 2
-  velocity: 0.1
+  rotChange: 4
+  velocity: 0.01
   velChange: 2
   vMax: 3.5
-  vMin: 0.5
+  vMin: 0.001
   MaxX: 9
   MaxY: 5
-  radiusMin: 4
+  radiusMin: 1
   trainMoveSFX: {fileID: 655197011319499447}
   trackParticles: {fileID: 7575868250004887741}
 --- !u!114 &5204139603069111960
@@ -5104,8 +5104,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6cce0438-0a6e-4be7-9b5a-7d91bbd60ef9
     m_ActionName: Player/Direction[/DualShock4GamepadHID/leftStick,/DualShock4GamepadHID/rightStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5204139603069111963}
+        m_MethodName: AdjustDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2a203a8a-002e-41bb-8b86-56ea35d9249e
+    m_ActionName: Player/Mouse[/Mouse/position,/Touchscreen/position,/Pen/position]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

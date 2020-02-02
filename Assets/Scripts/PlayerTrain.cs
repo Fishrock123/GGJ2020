@@ -69,6 +69,11 @@ public class PlayerTrain : MonoBehaviour
     public void AdjustDirection(InputAction.CallbackContext context)
     {
         directionInput = context.ReadValue<Vector2>();
+        directionInput = Camera.main.ScreenToWorldPoint(directionInput);
+        directionInput = (Vector3)directionInput - transform.position ;
+        
+
+        Debug.Log("Direction " + directionInput);
     }
 
     void FixedUpdate()
@@ -120,5 +125,6 @@ public class PlayerTrain : MonoBehaviour
     }
 
     void Update () {
+        //Debug.Log(Mouse.current.position);
     }
 }

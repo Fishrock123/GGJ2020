@@ -41,6 +41,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a203a8a-002e-41bb-8b86-56ea35d9249e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -129,6 +137,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Direction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b88e888-2af7-49f4-a386-5b56cc94062a"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse"",
+                    ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -698,6 +717,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Mouse"",
+            ""bindingGroup"": ""Mouse"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -706,6 +736,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Player_Velocity = m_Player.FindAction("Velocity", throwIfNotFound: true);
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
         m_Player_Direction = m_Player.FindAction("Direction", throwIfNotFound: true);
+        m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -771,6 +802,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Velocity;
     private readonly InputAction m_Player_Rotation;
     private readonly InputAction m_Player_Direction;
+    private readonly InputAction m_Player_Mouse;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -778,6 +810,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Velocity => m_Wrapper.m_Player_Velocity;
         public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
         public InputAction @Direction => m_Wrapper.m_Player_Direction;
+        public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -796,6 +829,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Direction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDirection;
                 @Direction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDirection;
                 @Direction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDirection;
+                @Mouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
+                @Mouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
+                @Mouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -809,6 +845,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Direction.started += instance.OnDirection;
                 @Direction.performed += instance.OnDirection;
                 @Direction.canceled += instance.OnDirection;
+                @Mouse.started += instance.OnMouse;
+                @Mouse.performed += instance.OnMouse;
+                @Mouse.canceled += instance.OnMouse;
             }
         }
     }
@@ -971,11 +1010,21 @@ public class @InputActions : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_XRSchemeIndex];
         }
     }
+    private int m_MouseSchemeIndex = -1;
+    public InputControlScheme MouseScheme
+    {
+        get
+        {
+            if (m_MouseSchemeIndex == -1) m_MouseSchemeIndex = asset.FindControlSchemeIndex("Mouse");
+            return asset.controlSchemes[m_MouseSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnVelocity(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnDirection(InputAction.CallbackContext context);
+        void OnMouse(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

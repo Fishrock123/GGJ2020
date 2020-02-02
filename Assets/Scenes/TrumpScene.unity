@@ -342,36 +342,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5204139603069111961, guid: 71c04affdcee2473a8aec106c1829a36,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5204139603069111963, guid: 71c04affdcee2473a8aec106c1829a36,
         type: 3}
       propertyPath: origin
       value: 
       objectReference: {fileID: 710629213}
-    - target: {fileID: 5204139603069111963, guid: 71c04affdcee2473a8aec106c1829a36,
-        type: 3}
-      propertyPath: vMin
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204139603069111963, guid: 71c04affdcee2473a8aec106c1829a36,
-        type: 3}
-      propertyPath: velocity
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204139603069111963, guid: 71c04affdcee2473a8aec106c1829a36,
-        type: 3}
-      propertyPath: rotChange
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204139603069111963, guid: 71c04affdcee2473a8aec106c1829a36,
-        type: 3}
-      propertyPath: radiusMin
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c04affdcee2473a8aec106c1829a36, type: 3}
 --- !u!1001 &2542600979010132773
