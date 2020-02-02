@@ -20,31 +20,17 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Direction",
+                    "type": "Value",
+                    "id": "6cce0438-0a6e-4be7-9b5a-7d91bbd60ef9",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "83242885-86a1-4a95-9289-5cdc95c9fb3e",
-                    "path": "<DualShockGamepad>/rightStick/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Velocity",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d0a3aab1-8ac3-42f2-b5d3-ab34e948ec57",
-                    "path": "<DualShockGamepad>/leftStick/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Velocity",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "1D Axis",
                     "id": "51d908f9-f536-4a59-9bbc-d1f026f47101",
@@ -79,28 +65,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "f3d19c14-dd17-412b-b3af-8c90a462be9e",
-                    "path": "<DualShockGamepad>/rightStick/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "feb846b5-f767-474c-833a-b377e6971bcd",
-                    "path": "<DualShockGamepad>/leftStick/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Rotation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "1D Axis",
                     "id": "efec9147-5c5e-4836-936b-5082370cf6b9",
                     "path": "1DAxis",
@@ -132,6 +96,28 @@
                     "action": "Rotation",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "91e73366-6732-4783-8af0-85327ee0d390",
+                    "path": "<DualShockGamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Direction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aff1ceb6-2dba-4aca-937e-7896083113bc",
+                    "path": "<DualShockGamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Direction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

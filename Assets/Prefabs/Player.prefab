@@ -4999,17 +4999,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {fileID: 0}
   rotation: 180
-  rotChange: 60
+  rotChange: 2
   velocity: 0.1
   velChange: 2
   vMax: 3.5
   vMin: 0.5
   MaxX: 9
   MaxY: 5
-  radiusMin: 1
+  radiusMin: 4
   trainMoveSFX: {fileID: 655197011319499447}
   trackParticles: {fileID: 7575868250004887741}
-  trackParticlesFront: {fileID: 0}
 --- !u!114 &5204139603069111960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5110,6 +5109,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e5f54ea2-401b-4cb4-8dcd-58f711ba051c
     m_ActionName: Player/Rotation[/DualShock4GamepadHID/rightStick/x,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5204139603069111963}
+        m_MethodName: AdjustDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6cce0438-0a6e-4be7-9b5a-7d91bbd60ef9
+    m_ActionName: Player/Direction[/DualShock4GamepadHID/leftStick,/DualShock4GamepadHID/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

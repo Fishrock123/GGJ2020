@@ -21,6 +21,7 @@ public class PlayerTrain : MonoBehaviour
 
     float velocityInput = 0;
     float rotationInput = 0;
+    Vector2 directionInput;
 
     public AudioSource trainMoveSFX;
 
@@ -65,37 +66,52 @@ public class PlayerTrain : MonoBehaviour
         velocityInput = context.ReadValue<float>();
     }
 
+    public void AdjustDirection(InputAction.CallbackContext context)
+    {
+        directionInput = context.ReadValue<Vector2>();
+    }
+
     void FixedUpdate()
     {
+        // Quaternion rot = Quaternion.AngleAxis(rotationInput * rotChange * Time.fixedDeltaTime, Vector3.forward);
+
+        if (directionInput.magnitude > 0.001) {
+            velocityInput = directionInput.magnitude;
+
+            transform.up = Vector2.Lerp(transform.up, directionInput, rotChange * Time.fixedDeltaTime);
+        }
+        else
+        {
+            velocityInput = -1;
+        }
+
         velocity += velocityInput * velChange * Time.fixedDeltaTime;
         velocity = Mathf.Clamp(velocity, vMin, vMax);
 
-        float rotDiff = (rotationInput * rotChange * Time.fixedDeltaTime);
-
         transform.position = transform.position + (transform.up * velocity * Time.fixedDeltaTime);
 
-        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotDiff);
+        // transform.rotation = transform.rotation * rot;
 
         float distToOrigin = Vector2.Distance(transform.position, origin.position);
         float originalEulerZ = transform.rotation.eulerAngles.z;
 
         if (Mathf.Abs(transform.position.x) > MaxX || Mathf.Abs(transform.position.y) > MaxY)
         {
-            transform.LookAt(origin);
-            float targetEulerZ = Mathf.Clamp(transform.rotation.eulerAngles.z - originalEulerZ, -5, 5);
-            transform.rotation = Quaternion.Euler(0, 0, originalEulerZ + targetEulerZ);
 
-            if (Mathf.Abs(transform.position.x) > MaxX + (MaxX / 8) || Mathf.Abs(transform.position.y) > MaxY + (MaxY / 8))
+            transform.up = Vector2.Lerp(transform.up, origin.position - transform.position, rotChange * 1.5f * Time.fixedDeltaTime);
+
+            if (Mathf.Abs(transform.position.x) > MaxX + 1 || Mathf.Abs(transform.position.y) > MaxY + 1)
             {
                 transform.position = transform.position + (origin.position - transform.position) * velChange * Time.fixedDeltaTime;
             }
         }
         else if (distToOrigin < radiusMin)
         {
-            transform.LookAt(origin);
-            transform.rotation = Quaternion.Inverse(transform.rotation);
-            float targetEulerZ = Mathf.Clamp(transform.rotation.eulerAngles.z - originalEulerZ, -5, 5);
-            transform.rotation = Quaternion.Euler(0, 0, originalEulerZ + targetEulerZ);
+            transform.up = Vector2.Lerp(transform.up, -(origin.position - transform.position), rotChange * 1.5f * Time.fixedDeltaTime);
+
+            if (distToOrigin < radiusMin - 1f) {
+                transform.position = transform.position + (-(origin.position - transform.position)) * velChange * Time.fixedDeltaTime;
+            }
         }
 
         trainMoveSFX.volume = velocity / vMax;
