@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -6732958043635711582}
   m_Layer: 0
   m_Name: BadThought
-  m_TagString: Untagged
+  m_TagString: BadThought
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0502434db568a374294002f462d23405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.6
+  speed: 2
 --- !u!114 &6053106640532435759
 MonoBehaviour:
   m_ObjectHideFlags: 0
