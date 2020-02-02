@@ -38,6 +38,8 @@ public class GoodThought : MonoBehaviour
     public UnityEvent respawnEvent;
     private Vector3 directionToTarget;
 
+    public GameObject outline;
+
     private void OnEnable()
     {
         Vector3 target = new Vector2(Random.Range(0, 10), Random.Range(0, 10));
@@ -57,7 +59,7 @@ public class GoodThought : MonoBehaviour
         }
         transform.Translate(directionToTarget * Time.deltaTime * speed);
 
-        
+
     }
 
     public void AttachTo(Transform anchor)
@@ -66,6 +68,7 @@ public class GoodThought : MonoBehaviour
         attached = true;
         trainGFX.SetActive(true);
         attachSFX.Play();
+        outline.SetActive(false);
     }
 
     public void Detatch()
@@ -74,6 +77,7 @@ public class GoodThought : MonoBehaviour
         attached = false;
         trainGFX.SetActive(false);
         detatchSFX.Play();
+        outline.SetActive(true);
     }
 
     public void ReAttachTo(Transform anchor)
