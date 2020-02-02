@@ -12,15 +12,15 @@ public class LifeManager : MonoBehaviour
     [SerializeField]
     private Image healthBarFilling;
 
-    private void Awake()
+    private void Start()
     {
-        healthBarFilling.fillAmount = (float)lifeCounter/ (float)lifeLimit;
+        setHealthBar((float)lifeCounter / (float)lifeLimit);
     }
     public void subtractLife()
     {
 
         lifeCounter--;
-        healthBarFilling.fillAmount = (float)lifeCounter / (float)lifeLimit;
+        setHealthBar((float)lifeCounter / (float)lifeLimit);
         if (lifeCounter == 0)
         {
             Debug.Log("Game Over");
@@ -32,11 +32,17 @@ public class LifeManager : MonoBehaviour
         if (lifeCounter < lifeLimit)
         {
             lifeCounter++;
-            healthBarFilling.fillAmount = (float)lifeCounter / (float)lifeLimit;
+            setHealthBar((float)lifeCounter / (float)lifeLimit);
         }
         if (lifeCounter == lifeLimit)
         {
             Debug.Log("WIN");
         }
+    }
+
+    private void setHealthBar(float amount)
+    {
+        
+        //healthBarFilling.fillAmount = amount;
     }
 }

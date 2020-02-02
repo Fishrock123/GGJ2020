@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - BadThought
+  - barFilling
   layers:
   - Default
   - TransparentFX

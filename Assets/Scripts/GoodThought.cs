@@ -31,14 +31,13 @@ public class GoodThought : MonoBehaviour
     public List<Sprite> sprites;
 
     public SpriteRenderer renderer;
+    private Vector3 directionToTarget;
 
     private void OnEnable()
     {
-        left = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        Vector3 distanceToCenter = left - Vector3.zero;
-        radius = distanceToCenter.x;
-        //dirToCenter.Normalize();
-        right = new Vector3(distanceToCenter.x * -1, distanceToCenter.y * -1, transform.position.z);
+        Vector3 target = new Vector2(Random.Range(0, 10), Random.Range(0, 10));
+        directionToTarget = target - transform.position;
+        directionToTarget = directionToTarget.normalized;
         renderer.sprite = sprites[Random.Range(0, sprites.Count - 1)];
     }
 
@@ -50,23 +49,9 @@ public class GoodThought : MonoBehaviour
             transform.position = targetAnchor.position - (transform.up * attachmentFront.localPosition.magnitude);
             return;
         }
+        transform.Translate(directionToTarget * Time.deltaTime * speed);
 
-        radius = Mathf.Lerp(radius, 0, speedToCenter * Time.deltaTime);
-
-        rotation += Time.deltaTime * speed;
-        rotation = rotation % 2;
-
-        Vector3 xform;
-        if (rotation > 1)
-        {
-            xform = Vector3.Slerp(right, left, rotation - 1);
-            transform.position = new Vector3(xform.x, -xform.z, xform.y);
-        }
-        else
-        {
-            xform = Vector3.Slerp(left, right, rotation);
-            transform.position = new Vector3(xform.x, xform.z, xform.y);
-        }
+        
     }
 
     public void AttachTo(Transform anchor)
