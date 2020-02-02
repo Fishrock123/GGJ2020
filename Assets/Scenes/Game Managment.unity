@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialScenes: []
-  initialLevel: FinalScene
+  initialLevel: IntroScene
   currentLevel: 
 --- !u!4 &1371165171
 Transform:
