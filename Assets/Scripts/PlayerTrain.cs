@@ -24,6 +24,8 @@ public class PlayerTrain : MonoBehaviour
 
     public AudioSource trainMoveSFX;
 
+    public ParticleSystem trackParticles;
+
     void Awake()
     {
         input = new InputActions();
@@ -97,6 +99,8 @@ public class PlayerTrain : MonoBehaviour
         }
 
         trainMoveSFX.volume = velocity / vMax;
+
+        trackParticles.startRotation = Mathf.Deg2Rad * -transform.eulerAngles.z;
     }
 
     void Update () {
