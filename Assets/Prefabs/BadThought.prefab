@@ -53,6 +53,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0a533fecdc1494243b2eff3635d9489d, type: 3}
   - {fileID: 21300000, guid: c31915bafc0f46b4aa61baf03dfd137d, type: 3}
   - {fileID: 21300000, guid: 6baec22e652d1c6429bc3530b85c5d15, type: 3}
+  - {fileID: 21300000, guid: 68eb818092c497e42a1459fd76ecab03, type: 3}
+  - {fileID: 21300000, guid: 648980987606f1b499fb4dd8b3f1a1da, type: 3}
   Renderer: {fileID: -4632562614039808008}
 --- !u!114 &6053106640532435759
 MonoBehaviour:
