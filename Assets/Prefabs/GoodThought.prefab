@@ -495,7 +495,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec184f8bc469ba140b78c850578ff58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {x: 0, y: 0, z: 0}
+  GoodThougthCollisionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5580472223903094653, guid: 7db4f10682c116b429fe74b30a36aa95,
+          type: 3}
+        m_MethodName: addLife
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  origin: {fileID: 0}
   rotation: 0
   radius: 7
   speed: 0.5
@@ -508,6 +523,8 @@ MonoBehaviour:
   attachmentBack: {fileID: 7371194375155992716}
   targetAnchor: {fileID: 0}
   trainGFX: {fileID: 20202174222470375}
+  left: {x: 0, y: 0, z: 0}
+  right: {x: 0, y: 0, z: 0}
   attachSFX: {fileID: 278742435334019848}
   detatchSFX: {fileID: 4754628100825125038}
   sprites:
