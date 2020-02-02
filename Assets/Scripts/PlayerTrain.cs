@@ -68,13 +68,14 @@ public class PlayerTrain : MonoBehaviour
 
     public void AdjustDirection(InputAction.CallbackContext context)
     {
-        directionInput = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>()) - transform.position ;
+        //directionInput = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>()) - transform.position ;
     }
 
     void FixedUpdate()
     {
         // Quaternion rot = Quaternion.AngleAxis(rotationInput * rotChange * Time.fixedDeltaTime, Vector3.forward);
 
+        directionInput = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position;
         if (directionInput.magnitude > 0.001) {
             velocityInput = directionInput.magnitude;
 

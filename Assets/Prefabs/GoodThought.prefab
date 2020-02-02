@@ -495,21 +495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec184f8bc469ba140b78c850578ff58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoodThougthCollisionEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5580472223903094653, guid: 7db4f10682c116b429fe74b30a36aa95,
-          type: 3}
-        m_MethodName: addLife
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   origin: {fileID: 0}
   rotation: 0
   radius: 7
@@ -538,7 +523,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fc20c9643412a41ddbc5be2538c027d0, type: 3}
   - {fileID: 21300000, guid: c80bbb123d0094cefabf06cdbf63c474, type: 3}
   - {fileID: 21300000, guid: de167cc99fd63441eb9c1858767ff612, type: 3}
-  renderer: {fileID: 1637565378631021928}
+  Renderer: {fileID: 1637565378631021928}
 --- !u!50 &-3789396398107799674
 Rigidbody2D:
   serializedVersion: 4
