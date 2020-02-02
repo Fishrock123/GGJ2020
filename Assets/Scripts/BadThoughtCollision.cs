@@ -16,6 +16,7 @@ public class BadThoughtCollision : MonoBehaviour
         {
             badThoughtEvent.Invoke(gameObject);
         }
+
         GoodThought otherThought;
         collision.TryGetComponent(out otherThought);
         if (otherThought == null)
