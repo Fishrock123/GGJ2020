@@ -121,6 +121,11 @@ public class PlayerTrain : MonoBehaviour
         trackParticles.startRotation = Mathf.Deg2Rad * -transform.eulerAngles.z;
     }
 
+    public void DisableSound()
+    {
+        trainMoveSFX.Stop();
+    }
+
     void Update () {
         //Debug.Log(Mouse.current.position);
     }

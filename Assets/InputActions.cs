@@ -49,6 +49,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Horn"",
+                    ""type"": ""Button"",
+                    ""id"": ""9fdbb703-2a7a-49e2-98f9-eadd15b23861"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -148,6 +156,39 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f7aba6a-99fd-45f4-a658-dc1a01554a40"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Horn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac824567-ef7e-4b13-afaa-8ab08d81fb29"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Horn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1ac5559-b96b-4db0-ade9-8d41bcc337d5"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Horn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -726,6 +767,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
         m_Player_Direction = m_Player.FindAction("Direction", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
+        m_Player_Horn = m_Player.FindAction("Horn", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -792,6 +834,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Rotation;
     private readonly InputAction m_Player_Direction;
     private readonly InputAction m_Player_Mouse;
+    private readonly InputAction m_Player_Horn;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -800,6 +843,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
         public InputAction @Direction => m_Wrapper.m_Player_Direction;
         public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
+        public InputAction @Horn => m_Wrapper.m_Player_Horn;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -821,6 +865,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Mouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
                 @Mouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
                 @Mouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouse;
+                @Horn.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorn;
+                @Horn.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorn;
+                @Horn.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorn;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -837,6 +884,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Mouse.started += instance.OnMouse;
                 @Mouse.performed += instance.OnMouse;
                 @Mouse.canceled += instance.OnMouse;
+                @Horn.started += instance.OnHorn;
+                @Horn.performed += instance.OnHorn;
+                @Horn.canceled += instance.OnHorn;
             }
         }
     }
@@ -1005,6 +1055,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnRotation(InputAction.CallbackContext context);
         void OnDirection(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);
+        void OnHorn(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

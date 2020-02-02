@@ -24,7 +24,7 @@ public class LifeManager : MonoBehaviour
 
         lifeCounter--;
         setHealthBar((float)lifeCounter / (float)lifeLimit);
-        if (lifeCounter == 0)
+        if (lifeCounter <= 0)
         {
             Time.timeScale = 0;
             loseGame.Invoke();
@@ -38,8 +38,9 @@ public class LifeManager : MonoBehaviour
             lifeCounter++;
             setHealthBar((float)lifeCounter / (float)lifeLimit);
         }
-        if (lifeCounter == lifeLimit)
+        if (lifeCounter >= lifeLimit)
         {
+            Time.timeScale = 0;
             endGame.Invoke();
         }
     }
