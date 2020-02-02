@@ -17,11 +17,9 @@ public class CreditSceneManagement : MonoBehaviour
         }
     }
 
-    private void Update()
+
+    public void LoadScene(string scene)
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            gameManager.SetLevel("IntroScene");
-        }
+        gameManager.SetLevel(scene);
     }
 }

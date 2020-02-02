@@ -65,12 +65,9 @@ public class FinalSceneManager : MonoBehaviour
         image.color = faded;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void LoadScene(string scene)
     {
-        if (Input.GetKeyDown(KeyCode.Return) )
-        {
-            gameManager.SetLevel("IntroScene");
-        }
+        gameManager.SetLevel(scene);
     }
 }
