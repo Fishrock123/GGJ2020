@@ -46,6 +46,6 @@ MonoBehaviour:
   ThoughtPrefab: {fileID: 6658707243111488814, guid: a7d8de952db62054a8f8190c3ffb0800,
     type: 3}
   radius: 10
-  coolDownSpawn: 1
+  coolDownSpawn: 3
   maxThoughts: 10
-  initialDelay: 10
+  initialDelay: 2
