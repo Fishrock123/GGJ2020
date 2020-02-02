@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerPhysicsTrigger : MonoBehaviour
 {
-    Rigidbody2D body;
     public Transform attachmentPoint;
     public PlayerTrain train;
     public GoodThought lastThought;
@@ -12,7 +11,6 @@ public class PlayerPhysicsTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TryGetComponent(out body);
     }
 
     // Update is called once per frame
@@ -24,8 +22,6 @@ public class PlayerPhysicsTrigger : MonoBehaviour
     void FixedUpdate ()
     {
         transform.localPosition = Vector3.zero;
-        body.position = transform.position;
-        body.rotation = 0;
     }
 
     void OnTriggerEnter2D(Collider2D other)
