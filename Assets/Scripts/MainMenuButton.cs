@@ -21,4 +21,12 @@ public class MainMenuButton : MonoBehaviour
     {
         gameManager.SetLevel(name);
     }
+
+    private void Update()
+    {
+        if ( Input.GetKeyDown(KeyCode.Return))
+        {
+            LoadScene("IntroScene");
+        }
+    }
 }

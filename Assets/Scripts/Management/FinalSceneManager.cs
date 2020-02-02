@@ -11,10 +11,18 @@ public class FinalSceneManager : MonoBehaviour
     public Image blackfade;
     public Image credits;
 
+
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(fadeCongratsToCredits());
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+
+        if (gameManager == null)
+        {
+            Debug.LogError("Game Manager was not loaded in for Main Menu Button!");
+        }
     }
 
     IEnumerator fadeCongratsToCredits()
@@ -60,6 +68,9 @@ public class FinalSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Return) )
+        {
+            gameManager.SetLevel("IntroScene");
+        }
     }
 }
