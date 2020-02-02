@@ -27,13 +27,14 @@ public class FinalSceneManager : MonoBehaviour
 
     IEnumerator fadeCongratsToCredits()
     {
+        credits.gameObject.SetActive(false);
         congrats.gameObject.SetActive(true);
         // yield return fadeImageIn(congrats, 2);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4.5f);
         yield return fadeImageOut(congrats, 1.3f);
         congrats.gameObject.SetActive(true);
         credits.gameObject.SetActive(true);
-        yield return fadeImageOut(blackfade, 1.3f);
+        yield return fadeImageIn(credits, 1.3f);
     }
 
     IEnumerator fadeImageIn(Image image, float seconds)
@@ -69,5 +70,10 @@ public class FinalSceneManager : MonoBehaviour
     public void LoadScene(string scene)
     {
         gameManager.SetLevel(scene);
+    }
+
+    public void PlayAudioClip(AudioClip clip)
+    {
+        gameManager.PlayAudioClip(clip);
     }
 }

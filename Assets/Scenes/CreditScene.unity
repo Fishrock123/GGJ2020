@@ -245,6 +245,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 158623229}
+        m_MethodName: PlayAudioClip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 82e6c093bc4924038b059e1ccbd17159,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 158623229}
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -540,7 +552,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2141218707}
   - component: {fileID: 2141218706}
-  - component: {fileID: 2141218705}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -548,14 +559,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2141218705
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141218704}
-  m_Enabled: 1
 --- !u!20 &2141218706
 Camera:
   m_ObjectHideFlags: 0

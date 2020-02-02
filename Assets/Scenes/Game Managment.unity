@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialScenes: []
-  initialLevel: IntroScene
+  initialLevel: FinalScene
   currentLevel: 
   destructingAudioObject: {fileID: 8053920344933457524, guid: 128c87fe15a6a4c168dfbe8179dfccff,
     type: 3}
@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1542637460}
   - component: {fileID: 1542637459}
+  - component: {fileID: 1542637461}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -295,3 +296,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1542637461
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542637458}
+  m_Enabled: 1

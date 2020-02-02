@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e271f85fd30b5fc49a8fac38100e034d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backAudioClip: {fileID: 8300000, guid: 82e6c093bc4924038b059e1ccbd17159, type: 3}
 --- !u!4 &296448901
 Transform:
   m_ObjectHideFlags: 0
@@ -246,7 +247,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1327139204}
   - component: {fileID: 1327139203}
-  - component: {fileID: 1327139202}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -254,14 +254,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1327139202
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327139201}
-  m_Enabled: 1
 --- !u!20 &1327139203
 Camera:
   m_ObjectHideFlags: 0

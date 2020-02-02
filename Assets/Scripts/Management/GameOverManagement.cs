@@ -6,6 +6,8 @@ public class GameOverManagement : MonoBehaviour
 {
     GameManager gameManager;
 
+    public AudioClip backAudioClip;
+
     void Start()
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
@@ -20,6 +22,7 @@ public class GameOverManagement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            gameManager.PlayAudioClip(backAudioClip);
             gameManager.SetLevel("IntroScene");
         }
     }

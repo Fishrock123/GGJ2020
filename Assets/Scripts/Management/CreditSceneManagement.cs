@@ -22,4 +22,9 @@ public class CreditSceneManagement : MonoBehaviour
     {
         gameManager.SetLevel(scene);
     }
+
+    public void PlayAudioClip(AudioClip clip)
+    {
+        gameManager.PlayAudioClip(clip);
+    }
 }
