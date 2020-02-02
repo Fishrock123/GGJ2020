@@ -22,6 +22,8 @@ public class PlayerTrain : MonoBehaviour
     float velocityInput = 0;
     float rotationInput = 0;
 
+    public AudioSource trainMoveSFX;
+
     void Awake()
     {
         input = new InputActions();
@@ -93,6 +95,8 @@ public class PlayerTrain : MonoBehaviour
             float targetEulerZ = Mathf.Clamp(transform.rotation.eulerAngles.z - originalEulerZ, -5, 5);
             transform.rotation = Quaternion.Euler(0, 0, originalEulerZ + targetEulerZ);
         }
+
+        trainMoveSFX.volume = velocity / vMax;
     }
 
     void Update () {
