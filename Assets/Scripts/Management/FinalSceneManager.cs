@@ -20,12 +20,12 @@ public class FinalSceneManager : MonoBehaviour
     IEnumerator fadeCongratsToCredits()
     {
         congrats.gameObject.SetActive(true);
-        yield return fadeImageIn(congrats, 2);
+        // yield return fadeImageIn(congrats, 2);
         yield return new WaitForSeconds(5);
-        yield return fadeImageOut(congrats, 2);
+        yield return fadeImageOut(congrats, 1.3f);
         congrats.gameObject.SetActive(true);
         credits.gameObject.SetActive(true);
-        yield return fadeImageOut(blackfade, 2);
+        yield return fadeImageOut(blackfade, 1.3f);
     }
 
     IEnumerator fadeImageIn(Image image, float seconds)
