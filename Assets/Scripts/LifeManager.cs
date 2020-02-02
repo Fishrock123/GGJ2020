@@ -39,6 +39,7 @@ public class LifeManager : MonoBehaviour
         }
         if (lifeCounter == lifeLimit)
         {
+            Time.timeScale = 0;
             endGame.Invoke();
         }
     }
