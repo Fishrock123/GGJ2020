@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FaceCollision : MonoBehaviour
 {
+    public UnityEngine.Events.UnityEvent collisionEvent;
     [SerializeField]
     private Animator trumpAnimator;
     [SerializeField]
@@ -12,12 +13,13 @@ public class FaceCollision : MonoBehaviour
     [SerializeField]
     private AudioClip[] trumpAudioClips;
     private bool playingSpeak = false;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Equals("BadThought"))
         {
             StartCoroutine(PlaySound());
-            
+            collisionEvent.Invoke();
         }
 
         
