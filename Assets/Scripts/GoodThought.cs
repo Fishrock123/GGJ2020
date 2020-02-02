@@ -27,8 +27,13 @@ public class GoodThought : MonoBehaviour
     public AudioSource attachSFX;
     public AudioSource detatchSFX;
 
+    public List<Sprite> sprites;
+
+    public SpriteRenderer renderer;
+
     void Start()
     {
+        renderer.sprite = sprites[Random.Range(0, sprites.Count - 1)];
     }
 
     void FixedUpdate()
