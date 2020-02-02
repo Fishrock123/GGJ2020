@@ -110,8 +110,7 @@ MonoBehaviour:
   badThoughtEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7118387619362481409, guid: 150b466caba6ba74ead0d898fae8b9d4,
-          type: 3}
+      - m_Target: {fileID: 525152611, guid: 150b466caba6ba74ead0d898fae8b9d4, type: 3}
         m_MethodName: BackToPool
         m_Mode: 0
         m_Arguments:

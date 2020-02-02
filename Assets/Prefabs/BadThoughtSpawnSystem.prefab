@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7118387619362481408}
-  - component: {fileID: 7118387619362481409}
+  - component: {fileID: 525152611}
   m_Layer: 0
   m_Name: BadThoughtSpawnSystem
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7118387619362481409
+--- !u!114 &525152611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7118387619362481415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4915c6620d6fa3645b41a006e716ed1d, type: 3}
+  m_Script: {fileID: 11500000, guid: c5222f4fe8a64c041a8643d16bf05241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ThoughtPrefab: {fileID: 6658707243111488814, guid: a7d8de952db62054a8f8190c3ffb0800,
@@ -48,3 +48,4 @@ MonoBehaviour:
   radius: 10
   coolDownSpawn: 1
   maxThoughts: 10
+  initialDelay: 10

@@ -36,7 +36,7 @@ public class BadThought : MonoBehaviour
 
         // It is attached, so destroy the bad thought.
 
-        ThoughtsSpawnSystem tss;
+        BadThoughtsSpawnSystem tss;
         GameObject.Find("BadThoughtSpawnSystem").TryGetComponent(out tss);
 
         if (tss == null)

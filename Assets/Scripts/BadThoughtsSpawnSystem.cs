@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThoughtsSpawnSystem : MonoBehaviour
+public class BadThoughtsSpawnSystem : MonoBehaviour
 {
     public GameObject ThoughtPrefab;
     public float radius = 6f;
