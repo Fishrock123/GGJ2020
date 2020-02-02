@@ -45,6 +45,22 @@ public class PlayerPhysicsTrigger : MonoBehaviour
             return;
         }
 
+        // INVERSE ATTACHMENT
+        // thought.train = train;
+        // if (firstThought)
+        // {
+        //     thought.next = firstThought;
+        //     firstThought.previous = thought;
+        //     thought.AttachTo(attachmentPoint);
+        //     firstThought.ReAttachTo(thought.attachmentBack);
+        // }
+        // else
+        // {
+        //     thought.AttachTo(attachmentPoint);
+        //     lastThought = thought;
+        // }
+        // firstThought = thought;
+
         thought.train = train;
         if (lastThought)
         {

@@ -24,6 +24,9 @@ public class GoodThought : MonoBehaviour
 
     public GameObject trainGFX;
 
+    public AudioSource attachSFX;
+    public AudioSource detatchSFX;
+
     void Start()
     {
     }
@@ -68,6 +71,7 @@ public class GoodThought : MonoBehaviour
         targetAnchor = anchor;
         attached = true;
         trainGFX.SetActive(true);
+        attachSFX.Play();
     }
 
     public void Detatch()
@@ -75,5 +79,11 @@ public class GoodThought : MonoBehaviour
         targetAnchor = null;
         attached = false;
         trainGFX.SetActive(false);
+        detatchSFX.Play();
+    }
+
+    public void ReAttachTo(Transform anchor)
+    {
+        targetAnchor = anchor;
     }
 }
