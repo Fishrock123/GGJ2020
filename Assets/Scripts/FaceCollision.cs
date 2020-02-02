@@ -13,7 +13,7 @@ public class FaceCollision : MonoBehaviour
     [SerializeField]
     private AudioClip[] trumpAudioClips;
     private bool playingSpeak = false;
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Equals("BadThought"))
@@ -22,12 +22,12 @@ public class FaceCollision : MonoBehaviour
             collisionEvent.Invoke();
         }
 
-        
+
     }
 
     private IEnumerator PlaySound()
     {
-        int randomAudioClip = UnityEngine.Random.Range(0, trumpAudioClips.Length);
+        int randomAudioClip = UnityEngine.Random.Range(0, trumpAudioClips.Length - 1);
         trumpAnimator.SetTrigger("speak");
         playingSpeak = true;
         trumpAudioSource.clip = trumpAudioClips[randomAudioClip];

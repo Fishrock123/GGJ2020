@@ -7,8 +7,13 @@ public class BadThoughtCollision : MonoBehaviour
 {
     [System.Serializable]
     public class BadThoughtEvent : UnityEvent<GameObject> { };
-   
+
     public BadThoughtEvent badThoughtEvent;
+
+    [SerializeField]
+    private AudioSource trumpAudioSource;
+    [SerializeField]
+    private AudioClip[] trumpAudioClips;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,6 +36,9 @@ public class BadThoughtCollision : MonoBehaviour
         }
 
         // It is attached, so destroy the bad thought.
+
+        int randomAudioClip = UnityEngine.Random.Range(0, trumpAudioClips.Length - 1);
+        GameObject.FindObjectOfType<GameManager>().PlayAudioClip(trumpAudioClips[randomAudioClip]);
 
         LifeManager lifeManager;
         GameObject.Find("LifeManager").TryGetComponent(out lifeManager);

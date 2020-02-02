@@ -62,4 +62,9 @@ public class IntroSceneManager : MonoBehaviour
     {
         buttons[listIndex].onClick.Invoke();
     }
+
+    public void PlayAudioClip(AudioClip clip)
+    {
+        gameManager.PlayAudioClip(clip);
+    }
 }

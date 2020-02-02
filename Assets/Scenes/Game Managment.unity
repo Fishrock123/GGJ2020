@@ -152,6 +152,8 @@ MonoBehaviour:
   initialScenes: []
   initialLevel: IntroScene
   currentLevel: 
+  destructingAudioObject: {fileID: 8053920344933457524, guid: 128c87fe15a6a4c168dfbe8179dfccff,
+    type: 3}
 --- !u!4 &1371165171
 Transform:
   m_ObjectHideFlags: 0

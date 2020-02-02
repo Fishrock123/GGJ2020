@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private string currentLevel;
 
+	public AudioSource destructingAudioObject;
+
 	// Use this for initialization
 	void Start () {
 		// Application.targetFrameRate = targetFrameRate;
@@ -54,5 +56,11 @@ public class GameManager : MonoBehaviour
 		if (queriedScene.IsValid() && queriedScene.isLoaded) return;
 
 		SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+	}
+
+	public void PlayAudioClip(AudioClip clip)
+	{
+		AudioSource destructingSource = GameObject.Instantiate(destructingAudioObject, Vector3.zero, Quaternion.identity);
+		destructingSource.clip = clip;
 	}
 }
