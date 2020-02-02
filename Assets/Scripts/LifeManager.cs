@@ -13,6 +13,7 @@ public class LifeManager : MonoBehaviour
     private Image healthBarFilling;
 
     public UnityEngine.Events.UnityEvent endGame;
+    public UnityEngine.Events.UnityEvent loseGame;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class LifeManager : MonoBehaviour
         setHealthBar((float)lifeCounter / (float)lifeLimit);
         if (lifeCounter == 0)
         {
-            endGame.Invoke();
+            loseGame.Invoke();
         }
     }
 
