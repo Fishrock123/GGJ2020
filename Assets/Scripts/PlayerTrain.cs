@@ -27,6 +27,8 @@ public class PlayerTrain : MonoBehaviour
 
     public ParticleSystem trackParticles;
 
+    public LineRenderer cursorLine;
+
     void Awake()
     {
         input = new InputActions();
@@ -121,12 +123,15 @@ public class PlayerTrain : MonoBehaviour
         trackParticles.startRotation = Mathf.Deg2Rad * -transform.eulerAngles.z;
     }
 
+    public void Update()
+    {
+        cursorLine.positionCount = 2;
+        cursorLine.SetPosition(0, transform.position);
+        cursorLine.SetPosition(1, Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
+    }
+
     public void DisableSound()
     {
         trainMoveSFX.Stop();
-    }
-
-    void Update () {
-        //Debug.Log(Mouse.current.position);
     }
 }
