@@ -16,5 +16,37 @@ public class BadThoughtCollision : MonoBehaviour
         {
             badThoughtEvent.Invoke(gameObject);
         }
+        GoodThought otherThought;
+        collision.TryGetComponent(out otherThought);
+        if (otherThought == null)
+        {
+            return;
+        }
+
+        // We hit a good thought
+        if (otherThought.attached == false)
+        {
+            return;
+        }
+
+        // It is attached, so destroy the bad thought.
+
+        LifeManager lifeManager;
+        GameObject.Find("LifeManager").TryGetComponent(out lifeManager);
+        if (lifeManager == null)
+        {
+            Debug.LogError("Healtfh not found");
+        }
+        lifeManager.addLife();
+
+        BadThoughtsSpawnSystem tss;
+        GameObject.Find("BadThoughtSpawnSystem").TryGetComponent(out tss);
+
+        if (tss == null)
+        {
+            Debug.LogError("Tried to return bad thought to spawner but could not find spawner");
+        }
+
+        tss.BackToPool(gameObject);
     }
 }

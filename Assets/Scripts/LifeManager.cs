@@ -42,7 +42,6 @@ public class LifeManager : MonoBehaviour
 
     private void setHealthBar(float amount)
     {
-        
-        //healthBarFilling.fillAmount = amount;
+        healthBarFilling.fillAmount = amount;
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BadThought
   - barFilling
+  - lifeManager
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BadThought : MonoBehaviour
 {
-    public UnityEngine.Events.UnityEvent GoodThougthCollisionEvent;
     public float speed = 0.001f;
     private Vector3 directionToTarget;
     private void OnEnable()
@@ -19,33 +18,4 @@ public class BadThought : MonoBehaviour
         transform.Translate(directionToTarget * speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-
-        GoodThought otherThought;
-        other.TryGetComponent(out otherThought);
-        if (otherThought == null)
-        {
-            return;
-        }
-
-        // We hit a good thought
-        if (otherThought.attached == false)
-        {
-            return;
-        }
-
-        // It is attached, so destroy the bad thought.
-
-        GoodThougthCollisionEvent.Invoke();
-        BadThoughtsSpawnSystem tss;
-        GameObject.Find("BadThoughtSpawnSystem").TryGetComponent(out tss);
-
-        if (tss == null)
-        {
-            Debug.LogError("Tried to return bad thought to spawner but could not find spawner");
-        }
-
-        tss.BackToPool(gameObject);
-    }
 }
