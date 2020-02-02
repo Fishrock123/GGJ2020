@@ -11,9 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OtherScene.unity
     guid: 4e22d99f9117df44da7e2760c7907d0b
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/3b507b52bdea243f7866dba4d7e4176b
+    guid: 3b507b52bdea243f7866dba4d7e4176b
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 79c5124dade964176b424ceda6b4a9aa
   - enabled: 1
     path: Assets/Scenes/TrumpScene.unity
-    guid: 3b507b52bdea243f7866dba4d7e4176b
+    guid: 948893d6c2baf489780715c9e83c0a10
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 37ed783de16aa45799aef87963d4b07d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 41f67f198597f4e1cb522ea8d5cbb8ad,
       type: 2}
