@@ -767,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46be5b582269994f802ec08caa1b449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeCounter: 100
+  lifeCounter: 10
   lifeLimit: 20
   healthBarFilling: {fileID: 518324170}
   endGame:
