@@ -68,12 +68,7 @@ public class PlayerTrain : MonoBehaviour
 
     public void AdjustDirection(InputAction.CallbackContext context)
     {
-        directionInput = context.ReadValue<Vector2>();
-        directionInput = Camera.main.ScreenToWorldPoint(directionInput);
-        directionInput = (Vector3)directionInput - transform.position ;
-        
-
-        Debug.Log("Direction " + directionInput);
+        directionInput = Camera.main.ScreenToWorldPoint(context.ReadValue<Vector2>()) - transform.position ;
     }
 
     void FixedUpdate()
