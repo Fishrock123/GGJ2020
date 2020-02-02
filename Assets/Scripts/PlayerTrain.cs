@@ -76,8 +76,9 @@ public class PlayerTrain : MonoBehaviour
         // Quaternion rot = Quaternion.AngleAxis(rotationInput * rotChange * Time.fixedDeltaTime, Vector3.forward);
 
         directionInput = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position;
+        directionInput = directionInput.normalized * (directionInput.magnitude * 0.5f);
         if (directionInput.magnitude > 0.001) {
-            velocityInput = directionInput.magnitude;
+            velocityInput = directionInput.magnitude - 0.5f;
 
             transform.up = Vector2.Lerp(transform.up, directionInput, rotChange * Time.fixedDeltaTime);
         }

@@ -4983,7 +4983,7 @@ MonoBehaviour:
   velocity: 0.01
   velChange: 2
   vMax: 3.5
-  vMin: 0.001
+  vMin: 1
   MaxX: 9
   MaxY: 5
   radiusMin: 1
@@ -5001,8 +5001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: b3987ee8b1bbd4dfc85414e9fc44d64a,
-    type: 3}
+  m_Actions: {fileID: 0}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -5120,7 +5119,7 @@ MonoBehaviour:
     m_ActionId: 2a203a8a-002e-41bb-8b86-56ea35d9249e
     m_ActionName: Player/Mouse[/Mouse/position,/Touchscreen/position,/Pen/position]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Mouse
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
