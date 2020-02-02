@@ -28,6 +28,9 @@ public class GoodThought : MonoBehaviour
 
     public AudioSource attachSFX;
     public AudioSource detatchSFX;
+    public List<Sprite> sprites;
+
+    public SpriteRenderer renderer;
 
     private void OnEnable()
     {
@@ -35,7 +38,8 @@ public class GoodThought : MonoBehaviour
         Vector3 distanceToCenter = left - Vector3.zero;
         radius = distanceToCenter.x;
         //dirToCenter.Normalize();
-        right = new Vector3(distanceToCenter.x*-1, distanceToCenter.y*-1, transform.position.z);
+        right = new Vector3(distanceToCenter.x * -1, distanceToCenter.y * -1, transform.position.z);
+        renderer.sprite = sprites[Random.Range(0, sprites.Count - 1)];
     }
 
     void FixedUpdate()
