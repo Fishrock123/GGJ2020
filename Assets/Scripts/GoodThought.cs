@@ -30,7 +30,7 @@ public class GoodThought : MonoBehaviour
     public AudioSource detatchSFX;
     public List<Sprite> sprites;
 
-    public SpriteRenderer renderer;
+    public SpriteRenderer Renderer;
     private Vector3 directionToTarget;
 
     private void OnEnable()
@@ -38,7 +38,7 @@ public class GoodThought : MonoBehaviour
         Vector3 target = new Vector2(Random.Range(0, 10), Random.Range(0, 10));
         directionToTarget = target - transform.position;
         directionToTarget = directionToTarget.normalized;
-        renderer.sprite = sprites[Random.Range(0, sprites.Count - 1)];
+        Renderer.sprite = sprites[Random.Range(0, sprites.Count - 1)];
     }
 
     void FixedUpdate()

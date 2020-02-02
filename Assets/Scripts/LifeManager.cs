@@ -12,6 +12,8 @@ public class LifeManager : MonoBehaviour
     [SerializeField]
     private Image healthBarFilling;
 
+    public UnityEngine.Events.UnityEvent endGame;
+
     private void Start()
     {
         setHealthBar((float)lifeCounter / (float)lifeLimit);
@@ -23,7 +25,7 @@ public class LifeManager : MonoBehaviour
         setHealthBar((float)lifeCounter / (float)lifeLimit);
         if (lifeCounter == 0)
         {
-            Debug.Log("Game Over");
+            endGame.Invoke();
         }
     }
 
@@ -36,7 +38,7 @@ public class LifeManager : MonoBehaviour
         }
         if (lifeCounter == lifeLimit)
         {
-            Debug.Log("WIN");
+            endGame.Invoke();
         }
     }
 

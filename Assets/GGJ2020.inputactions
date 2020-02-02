@@ -129,11 +129,11 @@
                 },
                 {
                     "name": "",
-                    "id": "2b88e888-2af7-49f4-a386-5b56cc94062a",
+                    "id": "3639659e-26b9-4571-b6bf-92a05369f880",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse",
+                    "groups": "Keyboard&Mouse",
                     "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -700,17 +700,6 @@
             "devices": [
                 {
                     "devicePath": "<XRController>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Mouse",
-            "bindingGroup": "Mouse",
-            "devices": [
-                {
-                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }
