@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GoodThought : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class GoodThought : MonoBehaviour
     public List<Sprite> sprites;
 
     public SpriteRenderer Renderer;
+    public float RespawnTime = 20;
+    //public class RespawnEvent : UnityEvent<GameObject> { };
+
+    public UnityEvent respawnEvent;
     private Vector3 directionToTarget;
 
     private void OnEnable()
@@ -39,6 +44,7 @@ public class GoodThought : MonoBehaviour
         directionToTarget = target - transform.position;
         directionToTarget = directionToTarget.normalized;
         Renderer.sprite = sprites[Random.Range(0, sprites.Count - 1)];
+        StartCoroutine(Respawn());
     }
 
     void FixedUpdate()
@@ -73,6 +79,15 @@ public class GoodThought : MonoBehaviour
     public void ReAttachTo(Transform anchor)
     {
         targetAnchor = anchor;
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(RespawnTime);
+        if ( !attached)
+        {
+            respawnEvent.Invoke();
+        }
     }
 
 }

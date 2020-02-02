@@ -47,6 +47,7 @@ public class GoodThoughtsSpawnSystem : MonoBehaviour
             GameObject thoughtToPool = Instantiate(ThoughtPrefab, transform);
             thoughtToPool.SetActive(false);
             thoughtsPool.Enqueue(thoughtToPool);
+            thoughtToPool.GetComponent<GoodThought>().respawnEvent.AddListener(delegate { BackToPool(thoughtToPool); });
             currentThoughts++;
         }
         if (thoughtsPool.Count == 0)

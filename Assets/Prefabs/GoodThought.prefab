@@ -524,6 +524,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c80bbb123d0094cefabf06cdbf63c474, type: 3}
   - {fileID: 21300000, guid: de167cc99fd63441eb9c1858767ff612, type: 3}
   Renderer: {fileID: 1637565378631021928}
+  RespawnTime: 30
+  respawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &-3789396398107799674
 Rigidbody2D:
   serializedVersion: 4
