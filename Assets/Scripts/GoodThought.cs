@@ -40,8 +40,12 @@ public class GoodThought : MonoBehaviour
 
     public GameObject outline;
 
+    Rigidbody2D body;
+
     private void OnEnable()
     {
+        TryGetComponent(out body);
+
         Vector3 target = new Vector2(Random.Range(0, 10), Random.Range(0, 10));
         directionToTarget = target - transform.position;
         directionToTarget = directionToTarget.normalized;
@@ -51,6 +55,8 @@ public class GoodThought : MonoBehaviour
 
     void FixedUpdate()
     {
+        body.velocity = Vector2.zero;
+
         if (attached)
         {
             transform.up = targetAnchor.position - transform.position;
