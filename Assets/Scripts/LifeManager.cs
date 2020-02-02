@@ -26,6 +26,7 @@ public class LifeManager : MonoBehaviour
         setHealthBar((float)lifeCounter / (float)lifeLimit);
         if (lifeCounter == 0)
         {
+            Time.timeScale = 0;
             loseGame.Invoke();
         }
     }
