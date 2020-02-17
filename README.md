@@ -1,4 +1,4 @@
-Global Game Jam 2020 Project at [Capilano University]
+Global Game Jam 2020 Project at [Capilano University][]
 
 **[Playable on Itch.io](https://hyperactive-unicorns.itch.io/think-fix-trump-edition)**
 
@@ -12,10 +12,10 @@ Made with Unity 2019.2, making use of the new Input System.
 
 ## Extended Credits
 
-* Art & Production by [Maia Lomelino]()
+* Art & Production by [Maia Lomelino][]
 * Sound Design by Diarmuid Nolan
-* Programming & Animation by [Affonso Vieira]()
-* Programming & Game Design by [Jeremiah Senkpiel]()
+* Programming & Animation by [Affonso Vieira][]
+* Programming & Game Design by [Jeremiah Senkpiel][]
 
 [Capilano University]: https://www.capilanou.ca/
 [Maia Lomelino]: https://maialomelino.itch.io/
