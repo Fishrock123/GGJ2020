@@ -1,6 +1,6 @@
 Global Game Jam 2020 Project at [Capilano University]
 
-[Playable on Itch.io](https://hyperactive-unicorns.itch.io/think-fix-trump-edition)
+**[Playable on Itch.io](https://hyperactive-unicorns.itch.io/think-fix-trump-edition)**
 
 > President's Trump mind is broken (because what else would explain, well, Trump). Use a train of thought to fix his ideas. Get only the good things going.
 
